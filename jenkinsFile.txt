@@ -1,0 +1,104 @@
+pipeline {
+    agent any
+    
+    tools {
+        jdk 'jdk17'
+        nodejs 'node16'
+    }
+    
+    environment {
+        SCANNER_HOME = tool 'sonar-scanner'
+    }
+    
+    stages {
+        
+        stage('clean workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+        
+        stage('code') {
+            steps {
+                git branch: 'main', url: 'https://github.com/ArlagaddaHepseeba-git/ZomatoProject.git'
+            }
+        }
+        
+        stage('CQA') {
+            steps {
+                withSonarQubeEnv('mysonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=zomato \
+                    -Dsonar.projectKey=zomato '''
+                }
+            }
+        }
+        
+        stage('code Quality') {
+            steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+                }
+            }
+        }
+        
+        stage('code build') {
+            steps {
+                sh 'npm install'
+            }
+        }
+        
+        stage('OWASP') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                }
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                sh 'docker build -t hepseeba/mydockerhubrepo:zomato .'
+            }
+        }
+        
+        stage('trivy file') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    sh 'trivy fs . > trivyfs.txt'
+                }
+            }
+        }
+        
+        stage('Image Scan') {
+            steps {
+                catchError(buildResult: 'SUCCESS', stageResult: 'UNSTABLE') {
+                    sh 'trivy image hepseeba/mydockerhubrepo:zomato'
+                }
+            }
+        }
+        
+        stage('DockerHub') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'dockerhub') {
+                        sh 'docker push hepseeba/mydockerhubrepo:zomato'
+                    }
+                }
+            }
+        }
+        
+        stage('container') {
+            steps {
+                sh '''
+                docker stop zomato 2>/dev/null || true
+                docker rm zomato 2>/dev/null || true
+                docker run -itd --name zomato -p 3000:3000 hepseeba/mydockerhubrepo:zomato
+                sleep 3
+                docker ps | grep zomato
+                '''
+            }
+        }
+    }
+}
+
