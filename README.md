@@ -31,6 +31,7 @@ yum install jenkins -y
 systemctl start jenkins.service
 systemctl enable jenkins.service
 systemctl status jenkins.service
+<img width="1920" height="1080" alt="instal all" src="https://github.com/user-attachments/assets/91ea4be1-8fa2-4810-bfa5-e902c723c7e5" />
 ### Step 3: Install Docker and Git
 yum install docker git -y
 systemctl start docker
@@ -58,12 +59,17 @@ Install the following plugins:
 ->OWASP Dependency-Check
 ->Docker Pipeline
 ->pipeline stage view
+<img width="1920" height="1080" alt="all plugins installed" src="https://github.com/user-attachments/assets/24d8dccf-7259-4df8-880b-d659495e1a80" />
 ### Step 7: Configure Tools in Jenkins
 Go to **Manage Jenkins → Tools** and configure:
 **JDK** → Name: `jdk17`, Install from adoptium.net
+<img width="1920" height="1080" alt="jdk17" src="https://github.com/user-attachments/assets/13c38cd2-cb32-47dc-8a5c-e91915cdb785" />
 **NodeJS** → Name: `node16`, Version: NodeJS 16.2.0
+<img width="1920" height="1080" alt="node16" src="https://github.com/user-attachments/assets/20009580-5096-4dbe-9744-992366fbd77b" />
 **SonarQube Scanner** → Name: `mysonar`, Install from Maven Central
+<img width="1920" height="1080" alt="mysonar" src="https://github.com/user-attachments/assets/ccccd7c6-4974-4cb4-bb8a-be3d8b4e8619" />
 **Dependency-Check** → Name: `DP-Check`, Install automatically
+<img width="1920" height="1080" alt="dp-check" src="https://github.com/user-attachments/assets/f42a13aa-bf1f-4f3d-a8e2-fbc465ee0579" />
 ### Step 8: Connect SonarQube with Jenkins
 1. In SonarQube → **Administration → Security → Users → Tokens**
 2. Generate a new token and copy it
