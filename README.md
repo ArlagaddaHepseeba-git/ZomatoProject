@@ -155,15 +155,21 @@ Go to **Manage Jenkins → Tools** and configure:
 
 <img width="1920" height="1080" alt="jdk17" src="https://github.com/user-attachments/assets/13c38cd2-cb32-47dc-8a5c-e91915cdb785" />
 
+
 **NodeJS** → Name: `node16`, Version: NodeJS 16.2.0
+
 
 <img width="1920" height="1080" alt="node16" src="https://github.com/user-attachments/assets/20009580-5096-4dbe-9744-992366fbd77b" />
 
+
 **SonarQube Scanner** → Name: `mysonar`, Install from Maven Central
+
 
 <img width="1920" height="1080" alt="mysonar" src="https://github.com/user-attachments/assets/ccccd7c6-4974-4cb4-bb8a-be3d8b4e8619" />
 
+
 **Dependency-Check** → Name: `DP-Check`, Install automatically
+
 
 <img width="1920" height="1080" alt="dp-check" src="https://github.com/user-attachments/assets/f42a13aa-bf1f-4f3d-a8e2-fbc465ee0579" />
 
@@ -183,7 +189,8 @@ Go to **Manage Jenkins → Tools** and configure:
    - URL: `http:54.144.199.104:9000`
    - Token: select `sonar-token`
      
-  ![Uploading sonar credentials.png…]()
+ <img width="1920" height="1034" alt="sonar credentials" src="https://github.com/user-attachments/assets/509e82fe-c161-47c7-9218-546c7b3381c6" />
+
      
  ### Step 9: Add DockerHub Credentials in Jenkins
 Go to **Manage Jenkins → Credentials → Global → Add Credentials**
