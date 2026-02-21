@@ -20,11 +20,11 @@ DockerHub 	           Store the Docker image
 ### Step 1: Launch AWS EC2 Instance
 
 I launched an EC2 instance on AWS to host the entire DevOps toolchain and application.
-
-Instance Details:
-
+## Instance Details:
 AMI: Amazon Linux 2023
+
 Instance Type: t2.large (2 vCPU, 8 GB RAM)
+
 Storage: 28 GB gp3
 Key Pair: myapp-key.pem 
 
