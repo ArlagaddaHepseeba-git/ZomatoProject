@@ -30,24 +30,31 @@ DockerHub ------------->	            Store the Docker image
 
 I launched an EC2 instance on AWS to host the entire DevOps toolchain and application.
 ## Instance Details:
-# AMI: Amazon Linux 2023
+ AMI: Amazon Linux 2023
 
-# Instance Type: t2.large (2 vCPU, 8 GB RAM)
+ Instance Type: t2.large (2 vCPU, 8 GB RAM)
 
-# Storage: 28 GB gp3
+Storage: 28 GB gp3
 
-# Key Pair: myapp-key.pem 
+ Key Pair: myapp-key.pem 
 
 <img width="1920" height="1080" alt="EC2-Instance" src="https://github.com/user-attachments/assets/e3de2cb4-7a7d-4d85-9081-aecdf9fcf86f" />
 
 ### Step 2: Install Jenkins
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+
 yum install java-17-amazon-corretto -y
+
 yum install jenkins -y
+
 systemctl start jenkins.service
+
 systemctl enable jenkins.service
+
 systemctl status jenkins.service
+
 <img width="1920" height="1080" alt="instal all" src="https://github.com/user-attachments/assets/91ea4be1-8fa2-4810-bfa5-e902c723c7e5" />
 ### Step 3: Install Docker and Git
 yum install docker git -y
