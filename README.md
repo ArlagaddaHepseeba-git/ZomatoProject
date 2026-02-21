@@ -41,6 +41,7 @@ Storage: 28 GB gp3
 <img width="1920" height="1080" alt="EC2-Instance" src="https://github.com/user-attachments/assets/e3de2cb4-7a7d-4d85-9081-aecdf9fcf86f" />
 
 ### Step 2: Install Jenkins
+
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
@@ -56,6 +57,7 @@ systemctl enable jenkins.service
 systemctl status jenkins.service
 
 <img width="1920" height="1080" alt="instal all" src="https://github.com/user-attachments/assets/91ea4be1-8fa2-4810-bfa5-e902c723c7e5" />
+
 ### Step 3: Install Docker and Git
 
 yum install docker git -y
@@ -81,34 +83,64 @@ Access SonarQube at: `http://<your-ec2-public-ip>:9000`
 <img width="1920" height="1080" alt="sonarr login" src="https://github.com/user-attachments/assets/164d8cc5-c452-417e-8dca-114947b6d6b0" />
 
 <img width="1920" height="1080" alt="update sonar" src="https://github.com/user-attachments/assets/d569f2f5-42a7-4977-a17d-df6911e0c286" />
+
 ### Step 5: Install Trivy
+
 wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
+
 tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
+
 sudo mv trivy /usr/local/bin/
+
 echo 'export PATH=$PATH:/usr/local/bin/' >> ~/.bashrc
+
 source ~/.bashrc
+
 trivy --version
+
 ### Step 6: Install Jenkins Plugins
+
 Go to **Jenkins Dashboard → Manage Jenkins → Plugins → Available Plugins**
+
 Install the following plugins:
+
 -> SonarQube Scanner
+
 ->Eclipse Temurin Installer
+
 ->NodeJS
+
 ->OWASP Dependency-Check
+
 ->Docker Pipeline
+
 ->pipeline stage view
+
 <img width="1920" height="1080" alt="all plugins installed" src="https://github.com/user-attachments/assets/24d8dccf-7259-4df8-880b-d659495e1a80" />
+
 ### Step 7: Configure Tools in Jenkins
+
 Go to **Manage Jenkins → Tools** and configure:
+
 **JDK** → Name: `jdk17`, Install from adoptium.net
+
 <img width="1920" height="1080" alt="jdk17" src="https://github.com/user-attachments/assets/13c38cd2-cb32-47dc-8a5c-e91915cdb785" />
+
 **NodeJS** → Name: `node16`, Version: NodeJS 16.2.0
+
 <img width="1920" height="1080" alt="node16" src="https://github.com/user-attachments/assets/20009580-5096-4dbe-9744-992366fbd77b" />
+
 **SonarQube Scanner** → Name: `mysonar`, Install from Maven Central
+
 <img width="1920" height="1080" alt="mysonar" src="https://github.com/user-attachments/assets/ccccd7c6-4974-4cb4-bb8a-be3d8b4e8619" />
+
 **Dependency-Check** → Name: `DP-Check`, Install automatically
+
 <img width="1920" height="1080" alt="dp-check" src="https://github.com/user-attachments/assets/f42a13aa-bf1f-4f3d-a8e2-fbc465ee0579" />
+
+
 ### Step 8: Connect SonarQube with Jenkins
+
 1. In SonarQube → **Administration → Security → Users → Tokens**
 2. Generate a new token and copy it
 3. In Jenkins → **Manage Jenkins → Credentials** → Add new **Secret Text**
