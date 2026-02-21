@@ -5,6 +5,7 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 <img width="2240" height="1260" alt="image" src="https://github.com/user-attachments/assets/e011e96c-570a-4dde-969f-080393016058" />
 
 ## Tools and Technologies Used
+
 **Tool**  	              **Purpose**
 AWS EC2	               Cloud server to host everything
 GitHub 	               Store the source code
@@ -17,13 +18,18 @@ Trivy 	               Scan files and Docker images for security issues
 DockerHub 	           Store the Docker image 
 
 ### Step 1: Launch AWS EC2 Instance
+
 I launched an EC2 instance on AWS to host the entire DevOps toolchain and application.
+
 Instance Details:
+
 AMI: Amazon Linux 2023
 Instance Type: t2.large (2 vCPU, 8 GB RAM)
 Storage: 28 GB gp3
 Key Pair: myapp-key.pem 
+
 <img width="1920" height="1080" alt="EC2-Instance" src="https://github.com/user-attachments/assets/e3de2cb4-7a7d-4d85-9081-aecdf9fcf86f" />
+
 ### Step 2: Install Jenkins
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
