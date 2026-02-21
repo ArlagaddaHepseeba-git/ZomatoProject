@@ -212,7 +212,7 @@ Go to **Manage Jenkins → Tools** and configure:
   
 4. In Jenkins → **Manage Jenkins → System** → Add SonarQube server
    - Name: `mysonar`
-   - URL: `http:54.144.199.104:9000`
+   - URL: `http://54.144.199.104:9000`
    - Token: select `sonar-token`
      
  <img width="1920" height="1034" alt="sonar credentials" src="https://github.com/user-attachments/assets/509e82fe-c161-47c7-9218-546c7b3381c6" />
@@ -334,8 +334,7 @@ pipeline  {
                 sh 'docker run -d --name zomato -p 3000:80 hepseeba/hepdockerrepo:zomato'
             }
         }
-
-    }
+ }
 }
 
 
