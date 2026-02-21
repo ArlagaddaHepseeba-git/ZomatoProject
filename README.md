@@ -98,17 +98,20 @@ chmod 777 /var/run/docker.sock
 
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 
-Access SonarQube at: `http://<your-ec2-public-ip>:9000`
+Access SonarQube at: `http://54.144.199.104:9000`
 
 -> Default username: admin
 
 -> Default password: admin
 
--> Update password on first login
-
 <img width="1920" height="1080" alt="sonarr login" src="https://github.com/user-attachments/assets/164d8cc5-c452-417e-8dca-114947b6d6b0" />
 
+-> Update password on first login
+
 <img width="1920" height="1080" alt="update sonar" src="https://github.com/user-attachments/assets/d569f2f5-42a7-4977-a17d-df6911e0c286" />
+
+<img width="1920" height="1027" alt="sonar setup" src="https://github.com/user-attachments/assets/ff325817-9b2b-4eeb-93b2-3b2847eed78e" />
+
 
 ### Step 5: Install Trivy
 
@@ -167,15 +170,20 @@ Go to **Manage Jenkins → Tools** and configure:
 
 ### Step 8: Connect SonarQube with Jenkins
 
-1. In SonarQube → **Administration → Security → Users → Tokens**
+1. In SonarQube → **Administration → Security → Users → Tokens**   
+
 2. Generate a new token and copy it
+
 3. In Jenkins → **Manage Jenkins → Credentials** → Add new **Secret Text**
    - Secret: your SonarQube token
    - ID: `sonar-token`
+  
 4. In Jenkins → **Manage Jenkins → System** → Add SonarQube server
    - Name: `mysonar`
-   - URL: `http://<your-ec2-ip>:9000`
+   - URL: `http:54.144.199.104:9000`
    - Token: select `sonar-token`
+  ![Uploading sonar credentials.png…]()
+     
  ### Step 9: Add DockerHub Credentials in Jenkins
 Go to **Manage Jenkins → Credentials → Global → Add Credentials**
 - Kind: Username and Password
@@ -282,7 +290,8 @@ pipeline {
 
 
   
-===============
+click on Build Now pipeline will start again
+
 <img width="1920" height="1080" alt="pipeline build" src="https://github.com/user-attachments/assets/665e67aa-ba42-4016-8fd1-74f2a27e6d49" />
 
 <img width="1920" height="1080" alt="Screenshot 2026-02-19 174311" src="https://github.com/user-attachments/assets/efe7e84b-7d36-4506-983f-4558b3dd35c9" />
