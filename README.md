@@ -22,7 +22,7 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 7. Docker 	 ------------->              Containerize and deploy the app
 
-8.Trivy 	------------->                Scan files and Docker images for security issues
+8. Trivy 	------------->                Scan files and Docker images for security issues
 
 9. DockerHub ------------->	            Store the Docker image 
 
