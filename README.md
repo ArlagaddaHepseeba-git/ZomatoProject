@@ -219,10 +219,14 @@ Go to **Jenkins Dashboard → New Item**
  
 
 
-pipeline {
+pipeline  {
+
      agent any
+     
          tools {
+         
               jdk 'jdk17'
+              
                nodejs 'node16'
              }
     
