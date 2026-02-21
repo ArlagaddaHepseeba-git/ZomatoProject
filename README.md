@@ -4,27 +4,51 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 ## Project Architecture
 <img width="2240" height="1260" alt="image" src="https://github.com/user-attachments/assets/e011e96c-570a-4dde-969f-080393016058" />
 
-## Tools and Technologies Used
+## Tools used:
 
-**Tool**  	                      **Purpose**
-| AWS EC2	                  | Cloud server to host everything
---------------------------------------------------------------
-| GitHub                    | Store the source code
----------------------------------------------------------------
-| Jenkins                   | CI/CD automation tool
---------------------------------------------------------------
-| SonarQube	                | Check code quality
--------------------------------------------------------------------
-| Node.js                   | Run and build the React application
-----------------------------------------------------------------------
-|OWASPDependencyCheck 	     | Scan for vulnerable libraries
-----------------------------------------------------------------------
-| Docker 	                  | Containerize and deploy the app
-------------------------------------------------------------------------
-| Trivy 	                   | Scan files and Docker images for security issues
---------------------------------------------------------------------------------
-| DockerHub                 | Store the Docker image
------------------------------------------------------------------------------------
+1.GitHub
+
+2.Jenkins
+
+3.Docker
+
+4.OWASP
+
+5.Trivy
+
+6.Sonarqube
+
+7.NodeJS
+
+## Key Highlights
+
+✅ Code Quality Assurance
+
+SonarQube checks the code for bugs, bad practices, and security issues. It makes sure the code is clean and follows good standards.
+
+✅ Vulnerability Scanning
+
+Trivy scans the Docker image to find known security problems
+
+OWASP Dependency Check scans all the libraries and packages used in the project to make sure none of them have security issues
+
+✅ Dockerized Environments
+
+Everything runs inside Docker containers. This means the pipeline works the same way every time, no matter where it runs.
+
+✅ CI/CD Workflow
+The pipeline automatically:
+
+Gets the latest code
+
+Tests it
+
+Builds it
+
+Deploys it
+
+All security and quality checks happen automatically during this process. This makes sure every release is safe and works properly.
+
 ## GitHub
 GitHub is a place to store code online. It saves all your work and lets you share it with others. If you make a mistake, you can go back to an older version. Teams use it to work together on the same project.
 
