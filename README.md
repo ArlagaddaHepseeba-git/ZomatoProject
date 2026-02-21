@@ -48,20 +48,21 @@ SonarQube checks your code for bugs, security issues, and bad coding habits. It 
 Node.js lets you run JavaScript on your computer instead of just in the browser. It's good for building fast websites, APIs, and apps that need to handle many users at once. Node.js is popular because it's quick, simple to learn, and great for real-time applications like chat apps.
 
 ## GitHub Repo:
-
-
+https://github.com/ArlagaddaHepseeba-git/ZomatoProject.git
 
 ### Step 1: Launch AWS EC2 Instance
 
 I launched an EC2 instance on AWS to host the entire DevOps toolchain and application.
 ## Instance Details:
- AMI: Amazon Linux 2023
+1. AMI: Amazon Linux 2023
 
- Instance Type: t2.large (2 vCPU, 8 GB RAM)
+2. Instance Type: t2.large (2 vCPU, 8 GB RAM)
 
-Storage: 28 GB gp3
+3. Storage: 28 GB gp3
 
- Key Pair: myapp-key.pem 
+4. Key Pair: myapp-key.pem 
+
+5. Security Groups : All Traffic
 
 <img width="1920" height="1080" alt="EC2-Instance" src="https://github.com/user-attachments/assets/e3de2cb4-7a7d-4d85-9081-aecdf9fcf86f" />
 
