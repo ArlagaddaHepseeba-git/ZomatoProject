@@ -22,21 +22,21 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 ## Key Highlights
 
-✅ Code Quality Assurance
+# 1. Code Quality Assurance
 
 SonarQube checks the code for bugs, bad practices, and security issues. It makes sure the code is clean and follows good standards.
 
-✅ Vulnerability Scanning
+# 2.Vulnerability Scanning
 
 Trivy scans the Docker image to find known security problems
 
 OWASP Dependency Check scans all the libraries and packages used in the project to make sure none of them have security issues
 
-✅ Dockerized Environments
+# 3.Dockerized Environments
 
 Everything runs inside Docker containers. This means the pipeline works the same way every time, no matter where it runs.
 
-✅ CI/CD Workflow
+# 4.CI/CD Workflow
 The pipeline automatically:
 
 Gets the latest code
