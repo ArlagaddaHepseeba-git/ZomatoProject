@@ -207,17 +207,25 @@ Go to **Manage Jenkins → Credentials → Global → Add Credentials**
 Go to **Jenkins Dashboard → New Item**
 
  Name: `myDeployment`
+ 
  Type: **Pipeline**
+ 
  Click OK
+ 
 
 pipeline {
+
     agent any
+    
     tools {
+    
         jdk 'jdk17'
+        
         nodejs 'node16'
     }
     
     environment {
+    
         SCANNER_HOME = tool 'mysonar'
     }
     
@@ -308,12 +316,16 @@ click on Build Now pipeline will start again
 <img width="1920" height="1080" alt="pipeline build" src="https://github.com/user-attachments/assets/665e67aa-ba42-4016-8fd1-74f2a27e6d49" />
 
 <img width="1920" height="1080" alt="Screenshot 2026-02-19 174311" src="https://github.com/user-attachments/assets/efe7e84b-7d36-4506-983f-4558b3dd35c9" />
+
+
+## Docker hub registry image
+
+<img width="1920" height="1080" alt="hub" src="https://github.com/user-attachments/assets/4a7918e4-49b9-4d49-ae25-b9e1ccf182fd" />
+
+<img width="1920" height="1080" alt="dockerhub" src="https://github.com/user-attachments/assets/52b05eae-fe17-4edd-be3f-b8bfcdb27baf" />
+
 <img width="1400" height="584" alt="image" src="https://github.com/user-attachments/assets/f88bfbf3-0082-412e-b2c9-0f5dad5d6016" />
 
-
-##Docker hub registry image
-<img width="1920" height="1080" alt="hub" src="https://github.com/user-attachments/assets/4a7918e4-49b9-4d49-ae25-b9e1ccf182fd" />
-<img width="1920" height="1080" alt="dockerhub" src="https://github.com/user-attachments/assets/52b05eae-fe17-4edd-be3f-b8bfcdb27baf" />
 <img width="1920" height="1080" alt="zomato app" src="https://github.com/user-attachments/assets/75f911c1-c7ea-4302-ae55-9f02e473d797" />
 
 
