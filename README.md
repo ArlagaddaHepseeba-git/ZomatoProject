@@ -3,6 +3,7 @@
 This project uses Jenkins to create an automated pipeline. It connects tools like Docker, Trivy, SonarQube, and OWASP to check for security issues and code quality. This helps us deliver safe and reliable software
 ## Project Architecture
 <img width="2240" height="1260" alt="image" src="https://github.com/user-attachments/assets/e011e96c-570a-4dde-969f-080393016058" />
+
 ## Tools and Technologies Used
 **Tool**  	              **Purpose**
 AWS EC2	               Cloud server to host everything
