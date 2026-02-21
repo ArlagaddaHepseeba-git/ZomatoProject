@@ -393,21 +393,21 @@ http://54.144.199.104:3000
 
  ## challenges faced
 
- 1. Docker Image Build Failed — Uppercase Letters in Repository Name
+## 1. Docker Image Build Failed — Uppercase Letters in Repository Name
 
-Problem: The Docker image build failed because the repository name had uppercase letters in it. Docker does not allow uppercase letters in image names.
+**Problem:** The Docker image build failed because the repository name had uppercase letters in it. Docker does not allow uppercase letters in image names.
 
 Fix: Renamed the Docker image tag to use only lowercase le
 tters. Changed the image name in the Jenkinsfile from uppercase to all lowercase.
 
-2. SonarQube Quality Gate Hanging
-Problem: The SonarQube Quality Gate stage in the Jenkins pipeline was not completing. It kept waiting and eventually the build timed out.
+## 2.SonarQube Quality Gate Hanging
+**Problem:** The SonarQube Quality Gate stage in the Jenkins pipeline was not completing. It kept waiting and eventually the build timed out.
 
 Fix: The issue was that no timeout was configured for the Quality Gate step. Added abortPipeline: false to the waitForQualityGate step so the pipeline would not get stuck and would continue even if the gate took too long.
 
-3. OWASP Dependency Check Failing with 403 Error
+## 3. OWASP Dependency Check Failing with 403 Error
 
-Problem: The OWASP Dependency Check stage was failing because the NVD (National Vulnerability Database) government website was blocking requests and returning a 403 Forbidden error. This caused the entire pipeline to stop.
+**Problem:** The OWASP Dependency Check stage was failing because the NVD (National Vulnerability Database) government website was blocking requests and returning a 403 Forbidden error. This caused the entire pipeline to stop.
 
 Fix: Added --disableOssIndex to the OWASP arguments so it skips the blocked source and continues scanning using other available sources. This allowed the pipeline to complete successfully without getting blocked by the NVD website.
 
