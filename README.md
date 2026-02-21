@@ -182,6 +182,7 @@ Go to **Manage Jenkins → Tools** and configure:
    - Name: `mysonar`
    - URL: `http:54.144.199.104:9000`
    - Token: select `sonar-token`
+     
   ![Uploading sonar credentials.png…]()
      
  ### Step 9: Add DockerHub Credentials in Jenkins
@@ -191,24 +192,26 @@ Go to **Manage Jenkins → Credentials → Global → Add Credentials**
 - Password: your DockerHub password
 - ID: `dockerhub`
 - 
-### Step 10: Create Jenkins Pipeline Job
+#### Step 10: Create Jenkins Pipeline Job
 
 Go to **Jenkins Dashboard → New Item**
 
-- Name: `myDeployment`
-- Type: **Pipeline**
-- 
+ Name: `myDeployment`
+ Type: **Pipeline**
+ Click OK
+
 pipeline {
     agent any
     tools {
         jdk 'jdk17'
         nodejs 'node16'
     }
+    
     environment {
         SCANNER_HOME = tool 'mysonar'
     }
+    
     stages {
-
         stage("clean workspace") {
             steps {
                 cleanWs()
