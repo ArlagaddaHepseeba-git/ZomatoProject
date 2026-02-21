@@ -8,23 +8,23 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 **Tool**  	                      **Purpose**
 
-AWS EC2	------->         Cloud server to host everything
+AWS EC2	------->                   Cloud server to host everything
 
-GitHub --------->	         Store the source code
+GitHub --------->	                 Store the source code
 
-Jenkins--------->        CI/CD automation tool
+Jenkins--------->                  CI/CD automation tool
 
-SonarQube	 ------>        Check code quality
+SonarQube	 ------>                 Check code quality
 
-Node.js 	------>          Run and build the React application
+Node.js 	------>                    Run and build the React application
 
-OWASPDependencyCheck ------>	Scan for vulnerable libraries
+OWASPDependencyCheck ------>	        Scan for vulnerable libraries
 
-Docker 	 ------------->  Containerize and deploy the app
+Docker 	 ------------->              Containerize and deploy the app
 
-Trivy 	------------->  Scan files and Docker images for security issues
+Trivy 	------------->                Scan files and Docker images for security issues
 
-DockerHub ------------->	Store the Docker image 
+DockerHub ------------->	            Store the Docker image 
 
 ### Step 1: Launch AWS EC2 Instance
 
