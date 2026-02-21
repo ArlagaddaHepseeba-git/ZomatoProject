@@ -334,11 +334,10 @@ pipeline  {
                 sh 'docker run -d --name zomato -p 3000:80 hepseeba/hepdockerrepo:zomato'
             }
         }
- }
+    }
 }
 
 
-  
 click on Build Now pipeline will start again
 
 <img width="1920" height="1080" alt="pipeline build" src="https://github.com/user-attachments/assets/665e67aa-ba42-4016-8fd1-74f2a27e6d49" />
@@ -346,16 +345,25 @@ click on Build Now pipeline will start again
 ## Dockerfile
 
 dockerfile
+
 FROM node:16 AS build
+
 WORKDIR /app
+
 COPY package*.json ./
+
 RUN npm install
+
 COPY . .
+
 RUN npm run build
 
 FROM nginx:alpine
+
 COPY --from=build /app/build /usr/share/nginx/html
+
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]
 
 
@@ -368,6 +376,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ## Docker hub registry image
 
 <img width="1920" height="1080" alt="hub" src="https://github.com/user-attachments/assets/4a7918e4-49b9-4d49-ae25-b9e1ccf182fd" />
+
 
 <img width="1920" height="1080" alt="dockerhub" src="https://github.com/user-attachments/assets/52b05eae-fe17-4edd-be3f-b8bfcdb27baf" />
 
