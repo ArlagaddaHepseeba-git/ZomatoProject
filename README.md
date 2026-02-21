@@ -95,6 +95,97 @@ Go to **Jenkins Dashboard → New Item**
 
 - Name: `myDeployment`
 - Type: **Pipeline**
+- 
+pipeline {
+    agent any
+    tools {
+        jdk 'jdk17'
+        nodejs 'node16'
+    }
+    environment {
+        SCANNER_HOME = tool 'mysonar'
+    }
+    stages {
+
+        stage("clean workspace") {
+            steps {
+                cleanWs()
+            }
+        }
+
+        stage("code") {
+            steps {
+                git branch: 'main', url: 'https://github.com/ArlagaddaHepseeba-git/ZomatoProject.git'
+            }
+        }
+
+        stage("Sonarqube Analysis") {
+            steps {
+                withSonarQubeEnv('mysonar') {
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=zomato \
+                    -Dsonar.projectKey=zomato '''
+                }
+            }
+        }
+
+        stage("Quality Gate") {
+            steps {
+                waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token'
+            }
+        }
+
+        stage("Install Dependencies") {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage("OWASP dependency") {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --disableOssIndex', odcInstallation: 'DP-Check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
+
+        stage("Dockerfile") {
+            steps {
+                sh 'docker build -t hepseeba/hepdockerrepo:zomato .'
+            }
+        }
+
+        stage("Trivy") {
+            steps {
+                sh 'trivy fs . > trivyfs.txt'
+            }
+        }
+
+        stage("Trivy Image Scan") {
+            steps {
+                sh 'trivy image hepseeba/hepdockerrepo:zomato'
+            }
+        }
+
+        stage("DockerHub") {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'dockerhub', url: 'https://index.docker.io/v1/') {
+                        sh 'docker push hepseeba/hepdockerrepo:zomato'
+                    }
+                }
+            }
+        }
+
+        stage("Deploy Container") {
+            steps {
+                sh 'docker stop zomato || true'
+                sh 'docker rm zomato || true'
+                sh 'docker run -d --name zomato -p 3000:80 hepseeba/hepdockerrepo:zomato'
+            }
+        }
+
+    }
+}
+
 
   
 
