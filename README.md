@@ -57,17 +57,29 @@ systemctl status jenkins.service
 
 <img width="1920" height="1080" alt="instal all" src="https://github.com/user-attachments/assets/91ea4be1-8fa2-4810-bfa5-e902c723c7e5" />
 ### Step 3: Install Docker and Git
+
 yum install docker git -y
+
 systemctl start docker
+
 systemctl status docker
+
 chmod 777 /var/run/docker.sock
+
 ### Step 4: Install SonarQube (using Docker)
+
 docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
+
 Access SonarQube at: `http://<your-ec2-public-ip>:9000`
+
 -> Default username: admin
+
 -> Default password: admin
+
 -> Update password on first login
+
 <img width="1920" height="1080" alt="sonarr login" src="https://github.com/user-attachments/assets/164d8cc5-c452-417e-8dca-114947b6d6b0" />
+
 <img width="1920" height="1080" alt="update sonar" src="https://github.com/user-attachments/assets/d569f2f5-42a7-4977-a17d-df6911e0c286" />
 ### Step 5: Install Trivy
 wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
