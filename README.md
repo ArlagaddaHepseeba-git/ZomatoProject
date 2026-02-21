@@ -7,25 +7,24 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 ## Tools and Technologies Used
 
 **Tool**  	                      **Purpose**
-
-1. AWS EC2	------->                   Cloud server to host everything
-
-2. GitHub --------->	                 Store the source code
-
-3. Jenkins--------->                  CI/CD automation tool
-
-4. SonarQube	 ------>                 Check code quality
-
-5. Node.js 	------>                    Run and build the React application
-
-6. OWASPDependencyCheck ------>	        Scan for vulnerable libraries
-
-7. Docker 	 ------------->              Containerize and deploy the app
-
-8. Trivy 	------------->                Scan files and Docker images for security issues
-
-9. DockerHub ------------->	            Store the Docker image
-
+| AWS EC2	                  | Cloud server to host everything
+--------------------------------------------------------------
+| GitHub                    | Store the source code
+---------------------------------------------------------------
+| Jenkins                   | CI/CD automation tool
+--------------------------------------------------------------
+| SonarQube	                | Check code quality
+-------------------------------------------------------------------
+| Node.js                   | Run and build the React application
+----------------------------------------------------------------------
+|OWASPDependencyCheck 	     | Scan for vulnerable libraries
+----------------------------------------------------------------------
+| Docker 	                  | Containerize and deploy the app
+------------------------------------------------------------------------
+| Trivy 	                   | Scan files and Docker images for security issues
+--------------------------------------------------------------------------------
+| DockerHub                 | Store the Docker image
+-----------------------------------------------------------------------------------
 ## GitHub
 GitHub is a place to store code online. It saves all your work and lets you share it with others. If you make a mistake, you can go back to an older version. Teams use it to work together on the same project.
 
