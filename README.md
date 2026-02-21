@@ -20,7 +20,7 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 7.NodeJS
 
-## Key Highlights
+### Key Highlights
 
 # 1. Code Quality Assurance
 
