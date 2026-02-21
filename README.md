@@ -24,7 +24,28 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 8. Trivy 	------------->                Scan files and Docker images for security issues
 
-9. DockerHub ------------->	            Store the Docker image 
+9. DockerHub ------------->	            Store the Docker image
+
+## GitHub
+GitHub is a place to store code online. It saves all your work and lets you share it with others. If you make a mistake, you can go back to an older version. Teams use it to work together on the same project.
+
+## Jenkins
+Jenkins is a tool that does tasks automatically. When you change your code, Jenkins can test it, build it, and put it live without you doing anything. You just set it up once and it runs every time.
+
+## Docker
+Docker packages your app into a box called a container. This box has everything your app needs to run. The app works the same on your computer, test server, or live server. No more "it works on my machine" problems.
+
+## OWASP
+OWASP helps make web applications more secure. It publishes a list called the OWASP Top 10 that shows the most common security problems in web apps. Developers use this list to learn what to avoid and how to build safer applications. OWASP also gives away free tools to test for security issues.
+
+## Trivy
+Trivy is a security scanner that checks your containers, files, and code for problems. It finds things like old software with known bugs or wrong settings. It's simple to use and works well with automated pipelines. Trivy catches security issues early before they become big problems.
+
+## SonarQube
+SonarQube checks your code for bugs, security issues, and bad coding habits. It gives you a report showing what's wrong and how to fix it. It works with many programming languages and connects to your automation tools. SonarQube helps teams write cleaner, safer, and better code.
+
+## Node.js
+Node.js lets you run JavaScript on your computer instead of just in the browser. It's good for building fast websites, APIs, and apps that need to handle many users at once. Node.js is popular because it's quick, simple to learn, and great for real-time applications like chat apps.
 
 ### Step 1: Launch AWS EC2 Instance
 
