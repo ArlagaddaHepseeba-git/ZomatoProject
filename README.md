@@ -6,15 +6,15 @@ This project uses Jenkins to create an automated pipeline. It connects tools lik
 
 ## Tools and Technologies Used
 
-**Tool**  	                                                **Purpose**
+**Tool**  	       **Purpose**
 
-AWS EC2	                                                Cloud server to host everything
+AWS EC2	------->         Cloud server to host everything
 
-GitHub 	                                                 Store the source code
+GitHub ----------->	         Store the source code
 
-Jenkins 	                                            CI/CD automation tool
+Jenkins 	------>        CI/CD automation tool
 
-SonarQube	             Check code quality
+SonarQube	         Check code quality
 
 Node.js 	             Run and build the React application
 
