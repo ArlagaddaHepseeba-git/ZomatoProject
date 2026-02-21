@@ -45,7 +45,6 @@ Access SonarQube at: `http://<your-ec2-public-ip>:9000`
 -> Update password on first login
 <img width="1920" height="1080" alt="sonarr login" src="https://github.com/user-attachments/assets/164d8cc5-c452-417e-8dca-114947b6d6b0" />
 <img width="1920" height="1080" alt="update sonar" src="https://github.com/user-attachments/assets/d569f2f5-42a7-4977-a17d-df6911e0c286" />
-<img width="1920" height="1080" alt="Screenshot 2026-02-19 174311" src="https://github.com/user-attachments/assets/b65d5b07-8b93-4e4d-aa92-46fb51b8350c" />
 ### Step 5: Install Trivy
 wget https://github.com/aquasecurity/trivy/releases/download/v0.18.3/trivy_0.18.3_Linux-64bit.tar.gz
 tar zxvf trivy_0.18.3_Linux-64bit.tar.gz
@@ -89,6 +88,7 @@ Go to **Manage Jenkins → Credentials → Global → Add Credentials**
 - Username: your DockerHub username
 - Password: your DockerHub password
 - ID: `dockerhub`
+- 
 ### Step 10: Create Jenkins Pipeline Job
 
 Go to **Jenkins Dashboard → New Item**
@@ -176,24 +176,15 @@ pipeline {
         }
     }
 }
-## Dockerfile
-```dockerfile
-FROM node:16 AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+<img width="1920" height="1080" alt="pipeline build" src="https://github.com/user-attachments/assets/665e67aa-ba42-4016-8fd1-74f2a27e6d49" />
+<img width="1920" height="1080" alt="Screenshot 2026-02-19 174311" src="https://github.com/user-attachments/assets/efe7e84b-7d36-4506-983f-4558b3dd35c9" />
+##Docker hub registry image
+<img width="1920" height="1080" alt="hub" src="https://github.com/user-attachments/assets/4a7918e4-49b9-4d49-ae25-b9e1ccf182fd" />
+<img width="1920" height="1080" alt="dockerhub" src="https://github.com/user-attachments/assets/52b05eae-fe17-4edd-be3f-b8bfcdb27baf" />
+<img width="1920" height="1080" alt="zomato app" src="https://github.com/user-attachments/assets/75f911c1-c7ea-4302-ae55-9f02e473d797" />
 
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-```
 
-This Dockerfile uses a **multi-stage build**:
-- First stage builds the React app using Node.js
-- Second stage serves the built files using a lightweight Nginx web server
+
 
 
 
