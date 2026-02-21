@@ -391,6 +391,51 @@ http://54.144.199.104:3000
 <img width="1920" height="1080" alt="zomato app" src="https://github.com/user-attachments/assets/75f911c1-c7ea-4302-ae55-9f02e473d797" />
 
 
+ ## challenges faced
+
+ 1. Docker Image Build Failed — Uppercase Letters in Repository Name
+
+Problem: The Docker image build failed because the repository name had uppercase letters in it. Docker does not allow uppercase letters in image names.
+
+Fix: Renamed the Docker image tag to use only lowercase le
+tters. Changed the image name in the Jenkinsfile from uppercase to all lowercase.
+
+2. SonarQube Quality Gate Hanging
+Problem: The SonarQube Quality Gate stage in the Jenkins pipeline was not completing. It kept waiting and eventually the build timed out.
+
+Fix: The issue was that no timeout was configured for the Quality Gate step. Added abortPipeline: false to the waitForQualityGate step so the pipeline would not get stuck and would continue even if the gate took too long.
+
+3. OWASP Dependency Check Failing with 403 Error
+
+Problem: The OWASP Dependency Check stage was failing because the NVD (National Vulnerability Database) government website was blocking requests and returning a 403 Forbidden error. This caused the entire pipeline to stop.
+
+Fix: Added --disableOssIndex to the OWASP arguments so it skips the blocked source and continues scanning using other available sources. This allowed the pipeline to complete successfully without getting blocked by the NVD website.
+
+dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit --disableOssIndex', odcInstallation: 'DP-Check'
+
+## 📚 Learning Outcomes
+
+How to launch and configure an AWS EC2 instance
+
+How to install and set up Jenkins for CI/CD automation
+
+How to write a Jenkinsfile with multiple pipeline stages
+
+How to containerize an application using Docker
+
+How to build, tag, and push Docker images to DockerHub
+
+How to integrate SonarQube for code quality analysis
+
+How to use Trivy to scan files and Docker images for security issues
+
+How to use OWASP Dependency Check to find vulnerable packages
+
+How to debug and fix real pipeline failures step by step
+
+How to deliver a secure and automated software deployment
+
+
 
 
 
