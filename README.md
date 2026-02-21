@@ -112,6 +112,9 @@ Access SonarQube at: `http://54.144.199.104:9000`
 
 <img width="1920" height="1027" alt="sonar setup" src="https://github.com/user-attachments/assets/ff325817-9b2b-4eeb-93b2-3b2847eed78e" />
 
+<img width="1920" height="1014" alt="sonar project name" src="https://github.com/user-attachments/assets/d997621c-ae63-451b-ab9d-0daf2a330d53" />
+
+
 
 ### Step 5: Install Trivy
 
