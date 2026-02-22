@@ -344,27 +344,22 @@ click on Build Now pipeline will start again
 
 ## Dockerfile
 
-dockerfile
-
 FROM node:16 AS build
-
 WORKDIR /app
-
 COPY package*.json ./
-
 RUN npm install
-
 COPY . .
-
 RUN npm run build
 
 FROM nginx:alpine
-
 COPY --from=build /app/build /usr/share/nginx/html
-
 EXPOSE 80
-
 CMD ["nginx", "-g", "daemon off;"]
+
+
+**This Dockerfile uses two stages:**
+ **Stage 1:** Uses Node.js to build the React app
+**Stage 2:** Uses Nginx to serve the app
 
 
 
