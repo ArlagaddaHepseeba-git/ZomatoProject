@@ -433,13 +433,21 @@ after this fix.
 ## 📚 Learning Outcomes
 
  How to launch and configure an AWS EC2 instance
+ 
  How to install and set up Jenkins for CI/CD automation
+ 
  How to write a Jenkinsfile with multiple pipeline stages
+ 
  How to containerize an application using Docker
+ 
  How to build, tag, and push Docker images to DockerHub
+ 
  How to integrate SonarQube for code quality analysis
+ 
  How to use Trivy and OWASP to scan for security issues
+ 
  How to debug and fix real pipeline failures step by step
+ 
  How to deliver a secure and automated software deployment
 
 
